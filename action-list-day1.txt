@@ -1,0 +1,830 @@
+bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ virtualenv --python=python3.8 venv
+Running virtualenv with interpreter /usr/bin/python3.8
+Using base prefix '/usr'
+/usr/lib/python3/dist-packages/virtualenv.py:1086: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+New python executable in /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/bin/python3.8
+Also creating executable in /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/bin/python
+Installing setuptools, pkg_resources, pip, wheel...
+  Complete output from command /home/bolatkhan/Pych...k/venv/bin/python3.8 - setuptools pkg_resources pip wheel:
+  Collecting setuptools
+  Downloading https://files.pythonhosted.org/packages/2c/c5/0d38afb961f83e0d51f319f7dc166195ebabc1ea3cb20a10a77f500f7156/setuptools-46.4.0-py3-none-any.whl (583kB)
+Collecting pkg_resources
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/43/84/23ed6a1796480a6f1a2d38f2802901d078266bda38388954d01d3f2e821d/pip-20.1.1-py2.py3-none-any.whl (1.5MB)
+Exception:
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/share/python-wheels/urllib3-1.22-py2.py3-none-any.whl/urllib3/response.py", line 302, in _error_catcher
+    yield
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/share/python-wheels/urllib3-1.22-py2.py3-none-any.whl/urllib3/response.py", line 384, in read
+    data = self._fp.read(amt)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/share/python-wheels/CacheControl-0.11.7-py2.py3-none-any.whl/cachecontrol/filewrapper.py", line 60, in read
+    data = self.__fp.read(amt)
+  File "/usr/lib/python3.8/http/client.py", line 454, in read
+    n = self.readinto(b)
+  File "/usr/lib/python3.8/http/client.py", line 498, in readinto
+    n = self.fp.readinto(b)
+  File "/usr/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/basecommand.py", line 215, in main
+    status = self.run(options, args)
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/commands/install.py", line 353, in run
+    wb.build(autobuilding=True)
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/wheel.py", line 749, in build
+    self.requirement_set.prepare_files(self.finder)
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/req/req_set.py", line 376, in prepare_files
+    discovered_reqs.extend(self._prepare_file(
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/req/req_set.py", line 617, in _prepare_file
+    unpack_url(
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/download.py", line 816, in unpack_url
+    unpack_http_url(
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/download.py", line 656, in unpack_http_url
+    from_path, content_type = _download_http_url(link,
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/download.py", line 882, in _download_http_url
+    _download_url(resp, link, content_file, hashes)
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/download.py", line 603, in _download_url
+    hashes.check_against_chunks(downloaded_chunks)
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/utils/hashes.py", line 46, in check_against_chunks
+    for chunk in chunks:
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/download.py", line 571, in written_chunks
+    for chunk in chunks:
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/utils/ui.py", line 139, in iter
+    for x in it:
+  File "/usr/share/python-wheels/pip-9.0.1-py2.py3-none-any.whl/pip/download.py", line 536, in resp_read
+    for chunk in resp.raw.stream(
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/share/python-wheels/urllib3-1.22-py2.py3-none-any.whl/urllib3/response.py", line 436, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/share/python-wheels/urllib3-1.22-py2.py3-none-any.whl/urllib3/response.py", line 401, in read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+  File "/usr/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/share/python-wheels/urllib3-1.22-py2.py3-none-any.whl/urllib3/response.py", line 307, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, 'Read timed out.')
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+----------------------------------------
+...Installing setuptools, pkg_resources, pip, wheel...done.
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/virtualenv.py", line 2375, in <module>
+    main()
+  File "/usr/lib/python3/dist-packages/virtualenv.py", line 714, in main
+    create_environment(home_dir,
+  File "/usr/lib/python3/dist-packages/virtualenv.py", line 988, in create_environment
+    install_wheel(
+  File "/usr/lib/python3/dist-packages/virtualenv.py", line 922, in install_wheel
+    call_subprocess(cmd, show_stdout=False, extra_env=env, stdin=SCRIPT)
+  File "/usr/lib/python3/dist-packages/virtualenv.py", line 815, in call_subprocess
+    raise OSError(
+OSError: Command /home/bolatkhan/Pych...k/venv/bin/python3.8 - setuptools pkg_resources pip wheel failed with error code 2
+bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ . venv/bin/activate
+bash: venv/bin/activate: No such file or directory
+bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ venv/bin/activate
+bash: venv/bin/activate: No such file or directory
+bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ .venv/bin/activate
+bash: .venv/bin/activate: No such file or directory
+bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ ls
+Dockerfile  MANIFEST.in  pylama.ini  README.rst            requirements.txt  tests
+Makefile    phoenix      pytest.ini  requirements.dev.txt  setup.py          venv
+bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ venv/bin/activate
+bash: venv/bin/activate: No such file or directory
+bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ . venv/bin/activate
+bash: venv/bin/activate: No such file or directory
+bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ virtualenv --python=python3.8 venv
+Running virtualenv with interpreter /usr/bin/python3.8
+Using base prefix '/usr'
+/usr/lib/python3/dist-packages/virtualenv.py:1086: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+New python executable in /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/bin/python3.8
+Not overwriting existing python script /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/bin/python (you must use /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/bin/python3.8)
+Installing setuptools, pkg_resources, pip, wheel...done.
+bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ . venv/bin/activate
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ pip install -e '.[dev]'
+Obtaining file:///home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back
+Collecting aiohttp~=3.6.2
+  Downloading aiohttp-3.6.2-py3-none-any.whl (441 kB)
+     |████████████████████████████████| 441 kB 436 kB/s 
+Collecting aiohttp-apispec==2.2.1
+  Downloading aiohttp-apispec-2.2.1.tar.gz (2.3 MB)
+     |████████████████████████████████| 2.3 MB 4.7 MB/s 
+Collecting aiomisc~=9.6.11
+  Downloading aiomisc-9.6.36-py3-none-any.whl (42 kB)
+     |████████████████████████████████| 42 kB 751 kB/s 
+Collecting alembic~=1.3.3
+  Downloading alembic-1.3.3.tar.gz (1.1 MB)
+     |████████████████████████████████| 1.1 MB 4.7 MB/s 
+Collecting asyncpgsa==0.26.1
+  Downloading asyncpgsa-0.26.1.tar.gz (7.2 kB)
+Collecting ConfigArgParse~=1.0
+  Downloading ConfigArgParse-1.2.3.tar.gz (42 kB)
+     |████████████████████████████████| 42 kB 390 kB/s 
+Collecting psycopg2-binary==2.8.4
+  Downloading psycopg2_binary-2.8.4-cp38-cp38-manylinux1_x86_64.whl (3.0 MB)
+     |████████████████████████████████| 3.0 MB 4.6 MB/s 
+Collecting pytz==2019.3
+  Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+     |████████████████████████████████| 509 kB 10.4 MB/s 
+Collecting setproctitle==1.1.10
+  Downloading setproctitle-1.1.10.tar.gz (24 kB)
+Collecting SQLAlchemy==1.3.14
+  Downloading SQLAlchemy-1.3.14.tar.gz (6.1 MB)
+     |████████████████████████████████| 6.1 MB 1.8 MB/s 
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+    Preparing wheel metadata ... done
+Collecting coverage==5.0.3
+  Downloading coverage-5.0.3-cp38-cp38-manylinux1_x86_64.whl (228 kB)
+     |████████████████████████████████| 228 kB 6.5 MB/s 
+Collecting Faker==4.0.0
+  Downloading Faker-4.0.0-py3-none-any.whl (963 kB)
+     |████████████████████████████████| 963 kB 3.5 MB/s 
+Collecting locust
+  Downloading locust-1.0.1-py3-none-any.whl (287 kB)
+     |████████████████████████████████| 287 kB 3.9 MB/s 
+Collecting pylama==7.7.1
+  Downloading pylama-7.7.1-py2.py3-none-any.whl (35 kB)
+Collecting pytest~=5.3.5
+  Downloading pytest-5.3.5-py3-none-any.whl (235 kB)
+     |████████████████████████████████| 235 kB 4.1 MB/s 
+Collecting pytest-aiohttp~=0.3.0
+  Downloading pytest_aiohttp-0.3.0-py3-none-any.whl (3.9 kB)
+Collecting pytest-cov==2.8.1
+  Downloading pytest_cov-2.8.1-py2.py3-none-any.whl (18 kB)
+Collecting SQLAlchemy-Utils==0.36.1
+  Downloading SQLAlchemy-Utils-0.36.1.tar.gz (128 kB)
+     |████████████████████████████████| 128 kB 4.8 MB/s 
+Collecting Pygments==2.6.1
+  Downloading Pygments-2.6.1-py3-none-any.whl (914 kB)
+     |████████████████████████████████| 914 kB 11.7 MB/s 
+Collecting attrs>=17.3.0
+  Downloading attrs-19.3.0-py2.py3-none-any.whl (39 kB)
+Collecting multidict<5.0,>=4.5
+  Downloading multidict-4.7.6-cp38-cp38-manylinux1_x86_64.whl (162 kB)
+     |████████████████████████████████| 162 kB 6.2 MB/s 
+Collecting async-timeout<4.0,>=3.0
+  Downloading async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
+Collecting yarl<2.0,>=1.0
+  Downloading yarl-1.4.2-cp38-cp38-manylinux1_x86_64.whl (253 kB)
+     |████████████████████████████████| 253 kB 7.2 MB/s 
+Collecting chardet<4.0,>=2.0
+  Downloading chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+     |████████████████████████████████| 133 kB 5.5 MB/s 
+Collecting apispec<4.0,>=3.0.0
+  Downloading apispec-3.3.0-py2.py3-none-any.whl (26 kB)
+Collecting webargs<6.0
+  Downloading webargs-5.5.3-py3-none-any.whl (29 kB)
+Collecting jinja2<3.0
+  Downloading Jinja2-2.11.2-py2.py3-none-any.whl (125 kB)
+     |████████████████████████████████| 125 kB 12.6 MB/s 
+Collecting prettylog~=0.3.0
+  Downloading prettylog-0.3.0-py3-none-any.whl (4.1 kB)
+Collecting colorlog
+  Downloading colorlog-4.1.0-py2.py3-none-any.whl (14 kB)
+Collecting Mako
+  Downloading Mako-1.1.2-py2.py3-none-any.whl (75 kB)
+     |████████████████████████████████| 75 kB 2.9 MB/s 
+Collecting python-editor>=0.3
+  Downloading python_editor-1.0.4-py3-none-any.whl (4.9 kB)
+Collecting python-dateutil
+  Downloading python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
+     |████████████████████████████████| 227 kB 5.4 MB/s 
+Collecting asyncpg
+  Downloading asyncpg-0.20.1-cp38-cp38-manylinux1_x86_64.whl (2.9 MB)
+     |████████████████████████████████| 2.9 MB 4.1 MB/s 
+Collecting text-unidecode==1.3
+  Downloading text_unidecode-1.3-py2.py3-none-any.whl (78 kB)
+     |████████████████████████████████| 78 kB 6.2 MB/s 
+Collecting gevent>=1.5.0
+  Downloading gevent-20.5.0-cp38-cp38-manylinux2010_x86_64.whl (5.9 MB)
+     |████████████████████████████████| 5.9 MB 2.2 MB/s 
+Collecting requests>=2.9.1
+  Downloading requests-2.23.0-py2.py3-none-any.whl (58 kB)
+     |████████████████████████████████| 58 kB 2.0 MB/s 
+Collecting psutil>=5.6.7
+  Downloading psutil-5.7.0.tar.gz (449 kB)
+     |████████████████████████████████| 449 kB 6.7 MB/s 
+Collecting Flask-BasicAuth>=0.2.0
+  Downloading Flask-BasicAuth-0.2.0.tar.gz (16 kB)
+Collecting msgpack>=0.6.2
+  Downloading msgpack-1.0.0-cp38-cp38-manylinux1_x86_64.whl (303 kB)
+     |████████████████████████████████| 303 kB 4.5 MB/s 
+Collecting pyzmq>=16.0.2
+  Downloading pyzmq-19.0.1-cp38-cp38-manylinux1_x86_64.whl (1.1 MB)
+     |████████████████████████████████| 1.1 MB 8.0 MB/s 
+Collecting flask>=0.10.1
+  Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+     |████████████████████████████████| 94 kB 1.7 MB/s 
+Collecting geventhttpclient-wheels==1.3.1.dev3
+  Downloading geventhttpclient_wheels-1.3.1.dev3-cp38-cp38-manylinux2010_x86_64.whl (91 kB)
+     |████████████████████████████████| 91 kB 4.1 MB/s 
+Collecting pydocstyle>=2.0.0
+  Downloading pydocstyle-5.0.2-py3-none-any.whl (35 kB)
+Collecting pycodestyle>=2.3.1
+  Downloading pycodestyle-2.6.0-py2.py3-none-any.whl (41 kB)
+     |████████████████████████████████| 41 kB 179 kB/s 
+Collecting pyflakes>=1.5.0
+  Downloading pyflakes-2.2.0-py2.py3-none-any.whl (66 kB)
+     |████████████████████████████████| 66 kB 4.7 MB/s 
+Collecting mccabe>=0.5.2
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting more-itertools>=4.0.0
+  Downloading more_itertools-8.3.0-py3-none-any.whl (44 kB)
+     |████████████████████████████████| 44 kB 1.4 MB/s 
+Collecting wcwidth
+  Downloading wcwidth-0.1.9-py2.py3-none-any.whl (19 kB)
+Collecting packaging
+  Downloading packaging-20.4-py2.py3-none-any.whl (37 kB)
+Collecting py>=1.5.0
+  Downloading py-1.8.1-py2.py3-none-any.whl (83 kB)
+     |████████████████████████████████| 83 kB 905 kB/s 
+Collecting pluggy<1.0,>=0.12
+  Downloading pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting six
+  Downloading six-1.14.0-py2.py3-none-any.whl (10 kB)
+Collecting idna>=2.0
+  Downloading idna-2.9-py2.py3-none-any.whl (58 kB)
+     |████████████████████████████████| 58 kB 3.1 MB/s 
+Collecting marshmallow>=2.15.2
+  Downloading marshmallow-3.6.0-py2.py3-none-any.whl (45 kB)
+     |████████████████████████████████| 45 kB 1.8 MB/s 
+Collecting MarkupSafe>=0.23
+  Downloading MarkupSafe-1.1.1-cp38-cp38-manylinux1_x86_64.whl (32 kB)
+Collecting fast-json
+  Downloading fast-json-0.3.2.tar.gz (1.9 kB)
+Collecting greenlet>=0.4.14; platform_python_implementation == "CPython"
+  Downloading greenlet-0.4.15-cp38-cp38-manylinux1_x86_64.whl (45 kB)
+     |████████████████████████████████| 45 kB 1.8 MB/s 
+Collecting certifi>=2017.4.17
+  Downloading certifi-2020.4.5.1-py2.py3-none-any.whl (157 kB)
+     |████████████████████████████████| 157 kB 7.8 MB/s 
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1
+  Downloading urllib3-1.25.9-py2.py3-none-any.whl (126 kB)
+     |████████████████████████████████| 126 kB 9.1 MB/s 
+Collecting itsdangerous>=0.24
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Werkzeug>=0.15
+  Downloading Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+     |████████████████████████████████| 298 kB 3.2 MB/s 
+Collecting click>=5.1
+  Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+     |████████████████████████████████| 82 kB 728 kB/s 
+Collecting snowballstemmer
+  Downloading snowballstemmer-2.0.0-py2.py3-none-any.whl (97 kB)
+     |████████████████████████████████| 97 kB 6.5 MB/s 
+Collecting pyparsing>=2.0.2
+  Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+     |████████████████████████████████| 67 kB 3.5 MB/s 
+Collecting ujson
+  Downloading ujson-2.0.3-cp38-cp38-manylinux1_x86_64.whl (177 kB)
+     |████████████████████████████████| 177 kB 4.7 MB/s 
+Building wheels for collected packages: aiohttp-apispec, alembic, asyncpgsa, ConfigArgParse, setproctitle, SQLAlchemy, SQLAlchemy-Utils, psutil, Flask-BasicAuth, fast-json
+  Building wheel for aiohttp-apispec (setup.py) ... done
+  Created wheel for aiohttp-apispec: filename=aiohttp_apispec-2.2.1-py3-none-any.whl size=2348632 sha256=c83654db56eeed0eb805999bbd8e57fd5b49e46fc08ec89f4d7bb039d5be5e0f
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/e2/72/91/2c0f473f1ce61f6a9219d72b7224e8e1ee12651f5c6f292e90
+  Building wheel for alembic (setup.py) ... done
+  Created wheel for alembic: filename=alembic-1.3.3-py2.py3-none-any.whl size=155684 sha256=46e90e084a4a86315a11bdab0f644b4058ca704c0457a14a3b2e999e069fca83
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/58/38/b8/dbfd32ea869e6711b141a5d374003f6994bd00198ed4bfac09
+  Building wheel for asyncpgsa (setup.py) ... done
+  Created wheel for asyncpgsa: filename=asyncpgsa-0.26.1-py3-none-any.whl size=9426 sha256=925cd8ed70502d3cf9d39064ee0222ec3a731f8306fbf1774aeb96860007729a
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/b3/c5/b0/63fefbca0c49dcf8643dc2b5d8b14b8819f0a0647f48b16385
+  Building wheel for ConfigArgParse (setup.py) ... done
+  Created wheel for ConfigArgParse: filename=ConfigArgParse-1.2.3-py3-none-any.whl size=19326 sha256=9da1fa7d3960f01414c169015c0366d9ee73a46d9b2467e01b8fd4d2df663551
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/b4/12/fe/1e4628f6ec22a9580d9e8fbef23df7a03948a1edde0821d7f5
+  Building wheel for setproctitle (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/bin/python3.8 -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-54vnk4om/setproctitle/setup.py'"'"'; __file__='"'"'/tmp/pip-install-54vnk4om/setproctitle/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' bdist_wheel -d /tmp/pip-wheel-ibl4k_t_
+       cwd: /tmp/pip-install-54vnk4om/setproctitle/
+  Complete output (10 lines):
+  running bdist_wheel
+  running build
+  running build_ext
+  building 'setproctitle' extension
+  creating build
+  creating build/temp.linux-x86_64-3.8
+  creating build/temp.linux-x86_64-3.8/src
+  x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -DSPT_VERSION=1.1.10 -DHAVE_SYS_PRCTL_H=1 -I/usr/include/python3.8 -I/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/include/python3.8 -c src/setproctitle.c -o build/temp.linux-x86_64-3.8/src/setproctitle.o
+  unable to execute 'x86_64-linux-gnu-gcc': No such file or directory
+  error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+  ----------------------------------------
+  ERROR: Failed building wheel for setproctitle
+  Running setup.py clean for setproctitle
+  Building wheel for SQLAlchemy (PEP 517) ... done
+  Created wheel for SQLAlchemy: filename=SQLAlchemy-1.3.14-cp38-cp38-linux_x86_64.whl size=1183067 sha256=d4cee71154c6a808a663aeb4e519d61500e8ec8269ca965098b922cbc99ad8b2
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/b7/b0/3a/3fcd8288ef43644b32becdfb20bf48b3a7c3bc5c7cf918b8a2
+  Building wheel for SQLAlchemy-Utils (setup.py) ... done
+  Created wheel for SQLAlchemy-Utils: filename=SQLAlchemy_Utils-0.36.1-py2.py3-none-any.whl size=89164 sha256=b70bb414755108b77a8bb38961f8cbcb1a2b211314e2d7c1fca493af70a346de
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/8c/67/16/b5592aa0114ca6c851f67a0035d35e414cd635f087e6eac1a1
+  Building wheel for psutil (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/bin/python3.8 -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-54vnk4om/psutil/setup.py'"'"'; __file__='"'"'/tmp/pip-install-54vnk4om/psutil/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' bdist_wheel -d /tmp/pip-wheel-163ibhpk
+       cwd: /tmp/pip-install-54vnk4om/psutil/
+  Complete output (112 lines):
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-3.8
+  creating build/lib.linux-x86_64-3.8/psutil
+  copying psutil/_psposix.py -> build/lib.linux-x86_64-3.8/psutil
+  copying psutil/__init__.py -> build/lib.linux-x86_64-3.8/psutil
+  copying psutil/_psaix.py -> build/lib.linux-x86_64-3.8/psutil
+  copying psutil/_pswindows.py -> build/lib.linux-x86_64-3.8/psutil
+  copying psutil/_common.py -> build/lib.linux-x86_64-3.8/psutil
+  copying psutil/_psbsd.py -> build/lib.linux-x86_64-3.8/psutil
+  copying psutil/_compat.py -> build/lib.linux-x86_64-3.8/psutil
+  copying psutil/_pslinux.py -> build/lib.linux-x86_64-3.8/psutil
+  copying psutil/_psosx.py -> build/lib.linux-x86_64-3.8/psutil
+  copying psutil/_pssunos.py -> build/lib.linux-x86_64-3.8/psutil
+  creating build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_aix.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/__main__.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_contracts.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_system.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_misc.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_osx.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/__init__.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_bsd.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_process.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_memory_leaks.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_connections.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_windows.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_unicode.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/runner.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_linux.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_posix.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  copying psutil/tests/test_sunos.py -> build/lib.linux-x86_64-3.8/psutil/tests
+  running build_ext
+  building 'psutil._psutil_linux' extension
+  creating build/temp.linux-x86_64-3.8
+  creating build/temp.linux-x86_64-3.8/psutil
+  x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -DPSUTIL_POSIX=1 -DPSUTIL_SIZEOF_PID_T=4 -DPSUTIL_VERSION=570 -DPSUTIL_LINUX=1 -DPSUTIL_ETHTOOL_MISSING_TYPES=1 -I/usr/include/python3.8 -I/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/include/python3.8 -c psutil/_psutil_common.c -o build/temp.linux-x86_64-3.8/psutil/_psutil_common.o
+  unable to execute 'x86_64-linux-gnu-gcc': No such file or directory
+  Traceback (most recent call last):
+    File "/usr/lib/python3.8/distutils/unixccompiler.py", line 117, in _compile
+      self.spawn(compiler_so + cc_args + [src, '-o', obj] +
+    File "/usr/lib/python3.8/distutils/ccompiler.py", line 910, in spawn
+      spawn(cmd, dry_run=self.dry_run)
+    File "/usr/lib/python3.8/distutils/spawn.py", line 36, in spawn
+      _spawn_posix(cmd, search_path, dry_run=dry_run)
+    File "/usr/lib/python3.8/distutils/spawn.py", line 157, in _spawn_posix
+      raise DistutilsExecError(
+  distutils.errors.DistutilsExecError: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+  
+  During handling of the above exception, another exception occurred:
+  
+  Traceback (most recent call last):
+    File "/usr/lib/python3.8/distutils/core.py", line 148, in setup
+      dist.run_commands()
+    File "/usr/lib/python3.8/distutils/dist.py", line 966, in run_commands
+      self.run_command(cmd)
+    File "/usr/lib/python3.8/distutils/dist.py", line 985, in run_command
+      cmd_obj.run()
+    File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/wheel/bdist_wheel.py", line 223, in run
+      self.run_command('build')
+    File "/usr/lib/python3.8/distutils/cmd.py", line 313, in run_command
+      self.distribution.run_command(command)
+    File "/usr/lib/python3.8/distutils/dist.py", line 985, in run_command
+      cmd_obj.run()
+    File "/usr/lib/python3.8/distutils/command/build.py", line 135, in run
+      self.run_command(cmd_name)
+    File "/usr/lib/python3.8/distutils/cmd.py", line 313, in run_command
+      self.distribution.run_command(command)
+    File "/usr/lib/python3.8/distutils/dist.py", line 985, in run_command
+      cmd_obj.run()
+    File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/setuptools/command/build_ext.py", line 87, in run
+      _build_ext.run(self)
+    File "/usr/lib/python3.8/distutils/command/build_ext.py", line 340, in run
+      self.build_extensions()
+    File "/usr/lib/python3.8/distutils/command/build_ext.py", line 449, in build_extensions
+      self._build_extensions_serial()
+    File "/usr/lib/python3.8/distutils/command/build_ext.py", line 474, in _build_extensions_serial
+      self.build_extension(ext)
+    File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/setuptools/command/build_ext.py", line 208, in build_extension
+      _build_ext.build_extension(self, ext)
+    File "/usr/lib/python3.8/distutils/command/build_ext.py", line 528, in build_extension
+      objects = self.compiler.compile(sources,
+    File "/usr/lib/python3.8/distutils/ccompiler.py", line 574, in compile
+      self._compile(obj, src, ext, cc_args, extra_postargs, pp_opts)
+    File "/usr/lib/python3.8/distutils/unixccompiler.py", line 120, in _compile
+      raise CompileError(msg)
+  distutils.errors.CompileError: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+  
+  During handling of the above exception, another exception occurred:
+  
+  Traceback (most recent call last):
+    File "/tmp/pip-install-54vnk4om/psutil/setup.py", line 393, in main
+      setup(**kwargs)
+    File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/setuptools/__init__.py", line 144, in setup
+      return distutils.core.setup(**attrs)
+    File "/usr/lib/python3.8/distutils/core.py", line 163, in setup
+      raise SystemExit("error: " + str(msg))
+  SystemExit: error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+  
+  During handling of the above exception, another exception occurred:
+  
+  Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/tmp/pip-install-54vnk4om/psutil/setup.py", line 426, in <module>
+      main()
+    File "/tmp/pip-install-54vnk4om/psutil/setup.py", line 400, in main
+      missdeps("sudo apt-get install gcc python%s-dev" % py3)
+    File "/tmp/pip-install-54vnk4om/psutil/setup.py", line 116, in missdeps
+      s = hilite("C compiler or Python headers are not installed ", ok=False)
+  TypeError: hilite() got an unexpected keyword argument 'ok'
+  ----------------------------------------
+  ERROR: Failed building wheel for psutil
+  Running setup.py clean for psutil
+  Building wheel for Flask-BasicAuth (setup.py) ... done
+  Created wheel for Flask-BasicAuth: filename=Flask_BasicAuth-0.2.0-py3-none-any.whl size=4227 sha256=674470d6e4b8a2852bbb60dca5b0cd5fc4e94d6160b660a08c8ff720d2b81090
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/58/74/bd/38e8fd3609bc962b1d807de1f96732ba088908cb1d242e6683
+  Building wheel for fast-json (setup.py) ... done
+  Created wheel for fast-json: filename=fast_json-0.3.2-py3-none-any.whl size=2121 sha256=a675c389c359536ed76792308088812a3e8b5b71b9936cff98795467f5041472
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/ca/d5/dc/592e1910274d3accc74b3671228f43e9f364c5004c29334b92
+Successfully built aiohttp-apispec alembic asyncpgsa ConfigArgParse SQLAlchemy SQLAlchemy-Utils Flask-BasicAuth fast-json
+Failed to build setproctitle psutil
+Installing collected packages: attrs, multidict, async-timeout, idna, yarl, chardet, aiohttp, apispec, marshmallow, webargs, MarkupSafe, jinja2, aiohttp-apispec, ujson, fast-json, colorlog, prettylog, aiomisc, SQLAlchemy, Mako, python-editor, six, python-dateutil, alembic, asyncpg, asyncpgsa, ConfigArgParse, psycopg2-binary, pytz, setproctitle, coverage, text-unidecode, Faker, greenlet, gevent, certifi, urllib3, requests, psutil, itsdangerous, Werkzeug, click, flask, Flask-BasicAuth, msgpack, pyzmq, geventhttpclient-wheels, locust, snowballstemmer, pydocstyle, pycodestyle, pyflakes, mccabe, pylama, more-itertools, wcwidth, pyparsing, packaging, py, pluggy, pytest, pytest-aiohttp, pytest-cov, SQLAlchemy-Utils, Pygments, phoenix
+    Running setup.py install for setproctitle ... error
+    ERROR: Command errored out with exit status 1:
+     command: /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/bin/python3.8 -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-54vnk4om/setproctitle/setup.py'"'"'; __file__='"'"'/tmp/pip-install-54vnk4om/setproctitle/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-kyuqn0v_/install-record.txt --single-version-externally-managed --compile --install-headers /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/include/site/python3.8/setproctitle
+         cwd: /tmp/pip-install-54vnk4om/setproctitle/
+    Complete output (10 lines):
+    running install
+    running build
+    running build_ext
+    building 'setproctitle' extension
+    creating build
+    creating build/temp.linux-x86_64-3.8
+    creating build/temp.linux-x86_64-3.8/src
+    x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -DSPT_VERSION=1.1.10 -DHAVE_SYS_PRCTL_H=1 -I/usr/include/python3.8 -I/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/include/python3.8 -c src/setproctitle.c -o build/temp.linux-x86_64-3.8/src/setproctitle.o
+    unable to execute 'x86_64-linux-gnu-gcc': No such file or directory
+    error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+    ----------------------------------------
+ERROR: Command errored out with exit status 1: /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/bin/python3.8 -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-54vnk4om/setproctitle/setup.py'"'"'; __file__='"'"'/tmp/pip-install-54vnk4om/setproctitle/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-kyuqn0v_/install-record.txt --single-version-externally-managed --compile --install-headers /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/include/site/python3.8/setproctitle Check the logs for full command output.
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ sudo apt install gcc make
+[sudo] password for bolatkhan: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  cpp-7 gcc-7 gcc-7-base gcc-8-base libasan4 libatomic1 libcc1-0 libcilkrts5 libgcc-7-dev libgcc1 libgomp1 libitm1 liblsan0
+  libmpx2 libquadmath0 libstdc++6 libtsan0 libubsan0
+Suggested packages:
+  gcc-7-locales gcc-multilib autoconf automake libtool flex bison gcc-doc gcc-7-multilib gcc-7-doc libgcc1-dbg libgomp1-dbg
+  libitm1-dbg libatomic1-dbg libasan4-dbg liblsan0-dbg libtsan0-dbg libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg
+  make-doc
+The following NEW packages will be installed:
+  gcc gcc-7 libasan4 libatomic1 libcilkrts5 libgcc-7-dev libitm1 liblsan0 libmpx2 libquadmath0 libtsan0 libubsan0 make
+The following packages will be upgraded:
+  cpp-7 gcc-7-base gcc-8-base libcc1-0 libgcc1 libgomp1 libstdc++6
+7 upgraded, 13 newly installed, 0 to remove and 181 not upgraded.
+Need to get 21,7 MB/22,2 MB of archives.
+After this operation, 47,5 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.5.0-3ubuntu1~18.04 [8 591 kB]
+Get:2 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.5.0-3ubuntu1~18.04 [18,3 kB]            
+Get:3 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.4.0-1ubuntu1~18.04 [27,9 kB]               
+Get:4 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.4.0-1ubuntu1~18.04 [9 192 B]            
+Get:5 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.5.0-3ubuntu1~18.04 [358 kB]               
+Get:6 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.4.0-1ubuntu1~18.04 [133 kB]               
+Get:7 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.4.0-1ubuntu1~18.04 [288 kB]               
+Get:8 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.5.0-3ubuntu1~18.04 [126 kB]              
+Get:9 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcilkrts5 amd64 7.5.0-3ubuntu1~18.04 [42,5 kB]           
+Get:10 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.4.0-1ubuntu1~18.04 [11,6 kB]              
+Get:11 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.4.0-1ubuntu1~18.04 [134 kB]          
+Get:12 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.5.0-3ubuntu1~18.04 [2 378 kB]        
+Get:13 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.5.0-3ubuntu1~18.04 [9 381 kB]               
+Get:14 http://kz.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.4.0-1ubuntu2.3 [5 184 B]                    
+Get:15 http://kz.archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]                                
+Fetched 21,7 MB in 57s (381 kB/s)                                                                                              
+(Reading database ... 133132 files and directories currently installed.)
+Preparing to unpack .../libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+
+Unpacking libgomp1:amd64 (8.4.0-1ubuntu1~18.04) over (8.3.0-6ubuntu1~18.04.1) ..............................................] 
+
+Progress: [  2%] [##........................................................................................................] 
+Preparing to unpack .../gcc-8-base_8.4.0-1ubuntu1~18.04_amd64.deb ..........................................................] 
+
+Unpacking gcc-8-base:amd64 (8.4.0-1ubuntu1~18.04) over (8.3.0-6ubuntu1~18.04.1) ............................................] 
+
+Progress: [  5%] [#####.....................................................................................................] 
+Setting up gcc-8-base:amd64 (8.4.0-1ubuntu1~18.04) .........................................................................] 
+
+Progress: [  7%] [#######...................................................................................................] 
+(Reading database ... 133132 files and directories currently installed.)....................................................] 
+Preparing to unpack .../libstdc++6_8.4.0-1ubuntu1~18.04_amd64.deb ...
+
+Unpacking libstdc++6:amd64 (8.4.0-1ubuntu1~18.04) over (8.3.0-6ubuntu1~18.04.1) ............................................] 
+
+Progress: [ 10%] [##########................................................................................................] 
+Setting up libstdc++6:amd64 (8.4.0-1ubuntu1~18.04) .........................................................................] 
+
+Progress: [ 12%] [############..............................................................................................] 
+(Reading database ... 133132 files and directories currently installed.)....................................................] 
+Preparing to unpack .../libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+
+Unpacking libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) over (8.3.0-6ubuntu1~18.04.1) ..............................................] 
+
+Progress: [ 15%] [###############...........................................................................................] 
+Preparing to unpack .../libgcc1_1%3a8.4.0-1ubuntu1~18.04_amd64.deb .........................................................] 
+
+Unpacking libgcc1:amd64 (1:8.4.0-1ubuntu1~18.04) over (1:8.3.0-6ubuntu1~18.04.1) ...........................................] 
+
+Progress: [ 18%] [##################........................................................................................] 
+Setting up libgcc1:amd64 (1:8.4.0-1ubuntu1~18.04) ..........................................................................] 
+
+Progress: [ 20%] [####################......................................................................................] 
+(Reading database ... 133132 files and directories currently installed.)....................................................] 
+Preparing to unpack .../00-cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+
+Unpacking cpp-7 (7.5.0-3ubuntu1~18.04) over (7.4.0-1ubuntu1~18.04.1) .......................................................] 
+
+Progress: [ 23%] [########################..................................................................................] 
+Preparing to unpack .../01-gcc-7-base_7.5.0-3ubuntu1~18.04_amd64.deb .......................................................] 
+
+Unpacking gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) over (7.4.0-1ubuntu1~18.04.1) ............................................] 
+
+Progress: [ 26%] [###########################...............................................................................] 
+Selecting previously unselected package libitm1:amd64.......................................................................] 
+Preparing to unpack .../02-libitm1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+
+Unpacking libitm1:amd64 (8.4.0-1ubuntu1~18.04) .............................................................................] 
+
+Progress: [ 29%] [##############################............................................................................] 
+Selecting previously unselected package libatomic1:amd64....................................................................] 
+Preparing to unpack .../03-libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+
+Unpacking libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ..........................................................................] 
+
+Progress: [ 32%] [#################################.........................................................................] 
+Selecting previously unselected package libasan4:amd64......................................................................] 
+Preparing to unpack .../04-libasan4_7.5.0-3ubuntu1~18.04_amd64.deb ...
+
+Unpacking libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...##.......................................................................] 
+
+Progress: [ 35%] [####################################......................................................................] 
+Selecting previously unselected package liblsan0:amd64......................................................................] 
+Preparing to unpack .../05-liblsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+
+Unpacking liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...#####....................................................................] 
+
+Progress: [ 38%] [#######################################...................................................................] 
+Selecting previously unselected package libtsan0:amd64.###..................................................................] 
+Preparing to unpack .../06-libtsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+
+Unpacking libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...########.................................................................] 
+
+Progress: [ 41%] [###########################################...............................................................] 
+Selecting previously unselected package libubsan0:amd64.######..............................................................] 
+Preparing to unpack .../07-libubsan0_7.5.0-3ubuntu1~18.04_amd64.deb ...
+
+Unpacking libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...###########.............................................................] 
+
+Progress: [ 44%] [##############################################............................................................] 
+Selecting previously unselected package libcilkrts5:amd64.#######...........................................................] 
+Preparing to unpack .../08-libcilkrts5_7.5.0-3ubuntu1~18.04_amd64.deb ...
+
+Unpacking libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...############..........................................................] 
+
+Progress: [ 47%] [#################################################.........................................................] 
+Selecting previously unselected package libmpx2:amd64.##############........................................................] 
+Preparing to unpack .../09-libmpx2_8.4.0-1ubuntu1~18.04_amd64.deb ...
+
+Unpacking libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...###################.......................................................] 
+
+Progress: [ 50%] [####################################################......................................................] 
+Selecting previously unselected package libquadmath0:amd64.############.....................................................] 
+Preparing to unpack .../10-libquadmath0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+
+Unpacking libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...#################....................................................] 
+
+Progress: [ 52%] [#######################################################...................................................] 
+Selecting previously unselected package libgcc-7-dev:amd64.###############..................................................] 
+Preparing to unpack .../11-libgcc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+
+Unpacking libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...####################.................................................] 
+
+Progress: [ 55%] [##########################################################................................................] 
+Selecting previously unselected package gcc-7.###############################...............................................] 
+Preparing to unpack .../12-gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+
+Unpacking gcc-7 (7.5.0-3ubuntu1~18.04) ...####################################..............................................] 
+
+Progress: [ 58%] [#############################################################.............................................] 
+Selecting previously unselected package gcc.####################################............................................] 
+Preparing to unpack .../13-gcc_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+
+Unpacking gcc (4:7.4.0-1ubuntu2.3) ...############################################..........................................] 
+
+Progress: [ 61%] [#################################################################.........................................] 
+Selecting previously unselected package make.#######################################........................................] 
+Preparing to unpack .../14-make_4.1-9.1ubuntu1_amd64.deb ...
+
+Unpacking make (4.1-9.1ubuntu1) ...##################################################.......................................] 
+
+Progress: [ 64%] [####################################################################......................................] 
+Setting up libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...###############################.....................................] 
+
+Progress: [ 66%] [######################################################################....................................] 
+Setting up libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...#####################################...................................] 
+
+Progress: [ 68%] [########################################################################..................................] 
+Setting up libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...#####################################.................................] 
+
+Progress: [ 70%] [##########################################################################................................] 
+Setting up libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...#########################################...............................] 
+
+Progress: [ 72%] [############################################################################..............................] 
+Setting up make (4.1-9.1ubuntu1) ...###########################################################.............................] 
+
+Progress: [ 74%] [##############################################################################............................] 
+Setting up libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...#############################################...........................] 
+
+Progress: [ 76%] [################################################################################..........................] 
+Setting up liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...###############################################.........................] 
+
+Progress: [ 78%] [##################################################################################........................] 
+Setting up gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...###############################################.......................] 
+
+Progress: [ 80%] [#####################################################################################.....................] 
+Setting up libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...#####################################################....................] 
+
+Progress: [ 82%] [#######################################################################################...................] 
+Setting up libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...#######################################################..................] 
+
+Progress: [ 84%] [#########################################################################################.................] 
+Setting up libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...########################################################................] 
+
+Progress: [ 86%] [###########################################################################################...............] 
+Setting up libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...#######################################################..............] 
+
+Progress: [ 88%] [#############################################################################################.............] 
+Setting up libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...###########################################################............] 
+
+Progress: [ 90%] [###############################################################################################...........] 
+Setting up libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...##########################################################..........] 
+
+Progress: [ 92%] [#################################################################################################.........] 
+Setting up cpp-7 (7.5.0-3ubuntu1~18.04) ...#########################################################################........] 
+
+Progress: [ 94%] [###################################################################################################.......] 
+Setting up gcc-7 (7.5.0-3ubuntu1~18.04) ...###########################################################################......] 
+
+Progress: [ 96%] [#####################################################################################################.....] 
+Setting up gcc (4:7.4.0-1ubuntu2.3) ...#################################################################################....] 
+
+Progress: [ 98%] [#######################################################################################################...] 
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...#####################################################################..] 
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ pip install -e '.[dev]'
+Obtaining file:///home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back
+Requirement already satisfied: aiohttp~=3.6.2 in ./venv/lib/python3.8/site-packages (from phoenix==0.0.1) (3.6.2)
+Requirement already satisfied: aiohttp-apispec==2.2.1 in ./venv/lib/python3.8/site-packages (from phoenix==0.0.1) (2.2.1)
+Requirement already satisfied: aiomisc~=9.6.11 in ./venv/lib/python3.8/site-packages (from phoenix==0.0.1) (9.6.36)
+Requirement already satisfied: alembic~=1.3.3 in ./venv/lib/python3.8/site-packages (from phoenix==0.0.1) (1.3.3)
+Requirement already satisfied: asyncpgsa==0.26.1 in ./venv/lib/python3.8/site-packages (from phoenix==0.0.1) (0.26.1)
+Requirement already satisfied: ConfigArgParse~=1.0 in ./venv/lib/python3.8/site-packages (from phoenix==0.0.1) (1.2.3)
+Requirement already satisfied: psycopg2-binary==2.8.4 in ./venv/lib/python3.8/site-packages (from phoenix==0.0.1) (2.8.4)
+Requirement already satisfied: pytz==2019.3 in ./venv/lib/python3.8/site-packages (from phoenix==0.0.1) (2019.3)
+Collecting setproctitle==1.1.10
+  Using cached setproctitle-1.1.10.tar.gz (24 kB)
+Requirement already satisfied: SQLAlchemy==1.3.14 in ./venv/lib/python3.8/site-packages (from phoenix==0.0.1) (1.3.14)
+Collecting coverage==5.0.3
+  Using cached coverage-5.0.3-cp38-cp38-manylinux1_x86_64.whl (228 kB)
+Collecting Faker==4.0.0
+  Using cached Faker-4.0.0-py3-none-any.whl (963 kB)
+Collecting locust
+  Using cached locust-1.0.1-py3-none-any.whl (287 kB)
+Collecting pylama==7.7.1
+  Using cached pylama-7.7.1-py2.py3-none-any.whl (35 kB)
+Collecting pytest~=5.3.5
+  Using cached pytest-5.3.5-py3-none-any.whl (235 kB)
+Collecting pytest-aiohttp~=0.3.0
+  Using cached pytest_aiohttp-0.3.0-py3-none-any.whl (3.9 kB)
+Collecting pytest-cov==2.8.1
+  Using cached pytest_cov-2.8.1-py2.py3-none-any.whl (18 kB)
+Processing /home/bolatkhan/.cache/pip/wheels/8c/67/16/b5592aa0114ca6c851f67a0035d35e414cd635f087e6eac1a1/SQLAlchemy_Utils-0.36.1-py2.py3-none-any.whl
+Collecting Pygments==2.6.1
+  Using cached Pygments-2.6.1-py3-none-any.whl (914 kB)
+Requirement already satisfied: attrs>=17.3.0 in ./venv/lib/python3.8/site-packages (from aiohttp~=3.6.2->phoenix==0.0.1) (19.3.0)
+Requirement already satisfied: async-timeout<4.0,>=3.0 in ./venv/lib/python3.8/site-packages (from aiohttp~=3.6.2->phoenix==0.0.1) (3.0.1)
+Requirement already satisfied: chardet<4.0,>=2.0 in ./venv/lib/python3.8/site-packages (from aiohttp~=3.6.2->phoenix==0.0.1) (3.0.4)
+Requirement already satisfied: multidict<5.0,>=4.5 in ./venv/lib/python3.8/site-packages (from aiohttp~=3.6.2->phoenix==0.0.1) (4.7.6)
+Requirement already satisfied: yarl<2.0,>=1.0 in ./venv/lib/python3.8/site-packages (from aiohttp~=3.6.2->phoenix==0.0.1) (1.4.2)
+Requirement already satisfied: apispec<4.0,>=3.0.0 in ./venv/lib/python3.8/site-packages (from aiohttp-apispec==2.2.1->phoenix==0.0.1) (3.3.0)
+Requirement already satisfied: jinja2<3.0 in ./venv/lib/python3.8/site-packages (from aiohttp-apispec==2.2.1->phoenix==0.0.1) (2.11.2)
+Requirement already satisfied: webargs<6.0 in ./venv/lib/python3.8/site-packages (from aiohttp-apispec==2.2.1->phoenix==0.0.1) (5.5.3)
+Requirement already satisfied: prettylog~=0.3.0 in ./venv/lib/python3.8/site-packages (from aiomisc~=9.6.11->phoenix==0.0.1) (0.3.0)
+Requirement already satisfied: colorlog in ./venv/lib/python3.8/site-packages (from aiomisc~=9.6.11->phoenix==0.0.1) (4.1.0)
+Requirement already satisfied: python-dateutil in ./venv/lib/python3.8/site-packages (from alembic~=1.3.3->phoenix==0.0.1) (2.8.1)
+Requirement already satisfied: python-editor>=0.3 in ./venv/lib/python3.8/site-packages (from alembic~=1.3.3->phoenix==0.0.1) (1.0.4)
+Requirement already satisfied: Mako in ./venv/lib/python3.8/site-packages (from alembic~=1.3.3->phoenix==0.0.1) (1.1.2)
+Requirement already satisfied: asyncpg in ./venv/lib/python3.8/site-packages (from asyncpgsa==0.26.1->phoenix==0.0.1) (0.20.1)
+Collecting text-unidecode==1.3
+  Using cached text_unidecode-1.3-py2.py3-none-any.whl (78 kB)
+Collecting pyzmq>=16.0.2
+  Using cached pyzmq-19.0.1-cp38-cp38-manylinux1_x86_64.whl (1.1 MB)
+Collecting gevent>=1.5.0
+  Using cached gevent-20.5.0-cp38-cp38-manylinux2010_x86_64.whl (5.9 MB)
+Collecting requests>=2.9.1
+  Using cached requests-2.23.0-py2.py3-none-any.whl (58 kB)
+Collecting geventhttpclient-wheels==1.3.1.dev3
+  Using cached geventhttpclient_wheels-1.3.1.dev3-cp38-cp38-manylinux2010_x86_64.whl (91 kB)
+Collecting psutil>=5.6.7
+  Using cached psutil-5.7.0.tar.gz (449 kB)
+Processing /home/bolatkhan/.cache/pip/wheels/58/74/bd/38e8fd3609bc962b1d807de1f96732ba088908cb1d242e6683/Flask_BasicAuth-0.2.0-py3-none-any.whl
+Collecting msgpack>=0.6.2
+  Using cached msgpack-1.0.0-cp38-cp38-manylinux1_x86_64.whl (303 kB)
+Collecting flask>=0.10.1
+  Using cached Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+Collecting pyflakes>=1.5.0
+  Using cached pyflakes-2.2.0-py2.py3-none-any.whl (66 kB)
+Collecting pydocstyle>=2.0.0
+  Using cached pydocstyle-5.0.2-py3-none-any.whl (35 kB)
+Collecting pycodestyle>=2.3.1
+  Using cached pycodestyle-2.6.0-py2.py3-none-any.whl (41 kB)
+Collecting mccabe>=0.5.2
+  Using cached mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting more-itertools>=4.0.0
+  Using cached more_itertools-8.3.0-py3-none-any.whl (44 kB)
+Collecting wcwidth
+  Using cached wcwidth-0.1.9-py2.py3-none-any.whl (19 kB)
+Collecting pluggy<1.0,>=0.12
+  Using cached pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting py>=1.5.0
+  Using cached py-1.8.1-py2.py3-none-any.whl (83 kB)
+Collecting packaging
+  Using cached packaging-20.4-py2.py3-none-any.whl (37 kB)
+Requirement already satisfied: six in ./venv/lib/python3.8/site-packages (from SQLAlchemy-Utils==0.36.1->phoenix==0.0.1) (1.14.0)
+Requirement already satisfied: idna>=2.0 in ./venv/lib/python3.8/site-packages (from yarl<2.0,>=1.0->aiohttp~=3.6.2->phoenix==0.0.1) (2.9)
+Requirement already satisfied: MarkupSafe>=0.23 in ./venv/lib/python3.8/site-packages (from jinja2<3.0->aiohttp-apispec==2.2.1->phoenix==0.0.1) (1.1.1)
+Requirement already satisfied: marshmallow>=2.15.2 in ./venv/lib/python3.8/site-packages (from webargs<6.0->aiohttp-apispec==2.2.1->phoenix==0.0.1) (3.6.0)
+Requirement already satisfied: fast-json in ./venv/lib/python3.8/site-packages (from prettylog~=0.3.0->aiomisc~=9.6.11->phoenix==0.0.1) (0.3.2)
+Collecting greenlet>=0.4.14; platform_python_implementation == "CPython"
+  Using cached greenlet-0.4.15-cp38-cp38-manylinux1_x86_64.whl (45 kB)
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1
+  Using cached urllib3-1.25.9-py2.py3-none-any.whl (126 kB)
+Collecting certifi>=2017.4.17
+  Using cached certifi-2020.4.5.1-py2.py3-none-any.whl (157 kB)
+Collecting click>=5.1
+  Using cached click-7.1.2-py2.py3-none-any.whl (82 kB)
+Collecting itsdangerous>=0.24
+  Using cached itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Werkzeug>=0.15
+  Using cached Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+Collecting snowballstemmer
+  Using cached snowballstemmer-2.0.0-py2.py3-none-any.whl (97 kB)
+Collecting pyparsing>=2.0.2
+  Using cached pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+Requirement already satisfied: ujson in ./venv/lib/python3.8/site-packages (from fast-json->prettylog~=0.3.0->aiomisc~=9.6.11->phoenix==0.0.1) (2.0.3)
+Building wheels for collected packages: setproctitle, psutil
+  Building wheel for setproctitle (setup.py) ... done
+  Created wheel for setproctitle: filename=setproctitle-1.1.10-cp38-cp38-linux_x86_64.whl size=34198 sha256=939ab684b53dbac9fe6b4901e144c7ef36aff844b748004ebcfb942cac66c22d
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/ec/65/c1/3fef7c77663701c7f470cd2f41cfb33d803a1cbb270a4fd994
+  Building wheel for psutil (setup.py) ... done
+  Created wheel for psutil: filename=psutil-5.7.0-cp38-cp38-linux_x86_64.whl size=276817 sha256=9e8c406e79ed750451d16563992a94deb7b90c7c6a0d9263b9a2876637b69dc0
+  Stored in directory: /home/bolatkhan/.cache/pip/wheels/90/c9/b6/04665702b01dbd9ee92a05e834b627948ed01cdd482e6a78e1
+Successfully built setproctitle psutil
+Installing collected packages: setproctitle, coverage, text-unidecode, Faker, pyzmq, greenlet, gevent, urllib3, certifi, requests, geventhttpclient-wheels, psutil, click, itsdangerous, Werkzeug, flask, Flask-BasicAuth, msgpack, locust, pyflakes, snowballstemmer, pydocstyle, pycodestyle, mccabe, pylama, more-itertools, wcwidth, pluggy, py, pyparsing, packaging, pytest, pytest-aiohttp, pytest-cov, SQLAlchemy-Utils, Pygments, phoenix
+  Running setup.py develop for phoenix
+Successfully installed Faker-4.0.0 Flask-BasicAuth-0.2.0 Pygments-2.6.1 SQLAlchemy-Utils-0.36.1 Werkzeug-1.0.1 certifi-2020.4.5.1 click-7.1.2 coverage-5.0.3 flask-1.1.2 gevent-20.5.0 geventhttpclient-wheels-1.3.1.dev3 greenlet-0.4.15 itsdangerous-1.1.0 locust-1.0.1 mccabe-0.6.1 more-itertools-8.3.0 msgpack-1.0.0 packaging-20.4 phoenix pluggy-0.13.1 psutil-5.7.0 py-1.8.1 pycodestyle-2.6.0 pydocstyle-5.0.2 pyflakes-2.2.0 pylama-7.7.1 pyparsing-2.4.7 pytest-5.3.5 pytest-aiohttp-0.3.0 pytest-cov-2.8.1 pyzmq-19.0.1 requests-2.23.0 setproctitle-1.1.10 snowballstemmer-2.0.0 text-unidecode-1.3 urllib3-1.25.9 wcwidth-0.1.9
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ python3.8 --version
+Python 3.8.3
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ python -V
+Python 3.8.3
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ python -m phoenix.api --help
+usage: __main__.py [-h] [--user USER] [--api-address API_ADDRESS] [--api-port API_PORT] [--pg-url PG_URL]
+                   [--pg-pool-min-size PG_POOL_MIN_SIZE] [--pg-pool-max-size PG_POOL_MAX_SIZE]
+                   [--log-level {debug,info,warning,error,fatal}] [--log-format {stream,color,json,syslog}]
+
+If an arg is specified in more than one place, then commandline values override environment variables which override defaults.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --user USER           Change process UID [env var: PHOENIX_USER] (default: None)
+
+API Options:
+  --api-address API_ADDRESS
+                        IPv4/IPv6 address API server would listen on [env var: PHOENIX_API_ADDRESS] (default: 0.0.0.0)
+  --api-port API_PORT   TCP port API server would listen on [env var: PHOENIX_API_PORT] (default: 8081)
+
+PostgreSQL options:
+  --pg-url PG_URL       URL to use to connect to the database [env var: PHOENIX_PG_URL] (default:
+                        postgresql://user:hackme@localhost/phoenix)
+  --pg-pool-min-size PG_POOL_MIN_SIZE
+                        Minimum database connections [env var: PHOENIX_PG_POOL_MIN_SIZE] (default: 10)
+  --pg-pool-max-size PG_POOL_MAX_SIZE
+                        Maximum database connections [env var: PHOENIX_PG_POOL_MAX_SIZE] (default: 10)
+
+Logging options:
+  --log-level {debug,info,warning,error,fatal}
+                        [env var: PHOENIX_LOG_LEVEL] (default: info)
+  --log-format {stream,color,json,syslog}
+                        [env var: PHOENIX_LOG_FORMAT] (default: color)
+
