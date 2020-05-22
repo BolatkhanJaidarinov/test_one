@@ -1,0 +1,625 @@
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ make postgres
+docker stop phoenix-postgres || true
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/phoenix-postgres/stop: dial unix /var/run/docker.sock: connect: permission denied
+docker run --rm --detach --name=phoenix-postgres \
+        --env POSTGRES_USER=user \
+        --env POSTGRES_PASSWORD=hackme \
+        --env POSTGRES_DB=phoenix \
+        --publish 5432:5432 postgres
+docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.40/containers/create?name=phoenix-postgres: dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+Makefile:31: recipe for target 'postgres' failed
+make: *** [postgres] Error 126
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ sudo make postgres
+[sudo] password for bolatkhan: 
+docker stop phoenix-postgres || true
+Error response from daemon: No such container: phoenix-postgres
+docker run --rm --detach --name=phoenix-postgres \
+        --env POSTGRES_USER=user \
+        --env POSTGRES_PASSWORD=hackme \
+        --env POSTGRES_DB=phoenix \
+        --publish 5432:5432 postgres
+c345dfc29443bdf8b51847c890672412c61904a3a491eefc1654ea35c2141291
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-api
+[T:MainThread] INFO:aiomisc.utils: Listening http://0.0.0.0:8081
+======== Running on http://0.0.0.0:8081 ========
+(Press CTRL+C to quit)
+[T:MainThread] INFO:phoenix.utils.pg: Connecting to database: postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Connected to database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:07:30:07 +0000] "GET /docs/ HTTP/1.1" 200 1624 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:07:30:08 +0000] "GET /static/swagger/swagger-ui.css HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:07:30:08 +0000] "GET /static/swagger/swagger-ui-bundle.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:07:30:08 +0000] "GET /static/swagger/swagger-ui-standalone-preset.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:07:30:08 +0000] "GET /api/docs/swagger.json HTTP/1.1" 200 12019 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 36, in get
+    items = await self.db.get_ogorodes(self.page, self.per_page)
+AttributeError: 'DBService' object has no attribute 'get_ogorodes'
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:07:30:48 +0000] "GET /ogorodes/?page=1&per_page=10 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/programs.py", line 36, in get
+    items = await self.db.get_programs(self.page, self.per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 71, in get_programs
+    return await self._get(programs_table, page, per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 65, in _get
+    return await self._db.fetch(query)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpgsa/pgsingleton.py", line 73, in fetch
+    return await conn.fetch(query, *args, timeout=timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 420, in fetch
+    return await self._execute(query, args, 0, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1402, in _execute
+    result, _ = await self.__execute(
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1411, in __execute
+    return await self._do_execute(query, executor, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1423, in _do_execute
+    stmt = await self._get_statement(query, None)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 328, in _get_statement
+    statement = await self._protocol.prepare(stmt_name, query, timeout)
+  File "asyncpg/protocol/protocol.pyx", line 163, in prepare
+asyncpg.exceptions.UndefinedTableError: relation "programs" does not exist
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:07:31:26 +0000] "GET /programs/?page=1&per_page=10 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/questions.py", line 37, in get
+    items = await self.db.get_questions(self.page, self.per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 74, in get_questions
+    return await self._get(questions_table, page, per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 65, in _get
+    return await self._db.fetch(query)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpgsa/pgsingleton.py", line 73, in fetch
+    return await conn.fetch(query, *args, timeout=timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 420, in fetch
+    return await self._execute(query, args, 0, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1402, in _execute
+    result, _ = await self.__execute(
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1411, in __execute
+    return await self._do_execute(query, executor, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1423, in _do_execute
+    stmt = await self._get_statement(query, None)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 328, in _get_statement
+    statement = await self._protocol.prepare(stmt_name, query, timeout)
+  File "asyncpg/protocol/protocol.pyx", line 163, in prepare
+asyncpg.exceptions.UndefinedTableError: relation "questions" does not exist
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:07:33:08 +0000] "GET /questions/?page=1&per_page=10 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+^C[T:MainThread] INFO:phoenix.utils.pg: Disconnecting from database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Disconnected from database postgresql://user:***@localhost/phoenix
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ cd..
+cd..: command not found
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ cd ..
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back$ ls
+action-list-day1.1.txt  action-list-day1.2.txt  action-list-day1.txt  phoenix-back  phoenix-back.zip
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back$ rm phoenix-back.zip
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back$ ls
+action-list-day1.1.txt  action-list-day1.2.txt  action-list-day1.txt  phoenix-back
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back$ cd ..
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects$ ls
+phoenix-back  test-1
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects$ cd phoenix-back/
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back$ ls
+action-list-day1.1.txt  action-list-day1.2.txt  action-list-day1.txt  phoenix-back
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back$ cd phoenix-back/
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ ls
+Dockerfile  Makefile     phoenix           pylama.ini  README.rst            requirements.txt  tests
+fabfile.py  MANIFEST.in  phoenix.egg-info  pytest.ini  requirements.dev.txt  setup.py          venv
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ sudo make postgres
+[sudo] password for bolatkhan: 
+docker stop phoenix-postgres || true
+phoenix-postgres
+docker run --rm --detach --name=phoenix-postgres \
+        --env POSTGRES_USER=user \
+        --env POSTGRES_PASSWORD=hackme \
+        --env POSTGRES_DB=phoenix \
+        --publish 5432:5432 postgres
+3edd6a0d94afcc357e04a109a8b9db6d28384d889d9ad49b69f15c13f7a66009
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-db upgrade head
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 352f69a8c5eb, initial
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-api
+[T:MainThread] INFO:aiomisc.utils: Listening http://0.0.0.0:8081
+======== Running on http://0.0.0.0:8081 ========
+(Press CTRL+C to quit)
+[T:MainThread] INFO:phoenix.utils.pg: Connecting to database: postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Connected to database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:22:32 +0000] "GET /docs/ HTTP/1.1" 200 1624 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:22:32 +0000] "GET /static/swagger/swagger-ui.css HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:22:32 +0000] "GET /static/swagger/swagger-ui-bundle.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:22:32 +0000] "GET /static/swagger/swagger-ui-standalone-preset.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:22:33 +0000] "GET /api/docs/swagger.json HTTP/1.1" 200 12019 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:22:39 +0000] "GET /questions/?page=1&per_page=10 HTTP/1.1" 200 215 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 36, in get
+    items = await self.db.get_ogorodes(self.page, self.per_page)
+AttributeError: 'DBService' object has no attribute 'get_ogorodes'
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:22:56 +0000] "GET /ogorodes/?page=1&per_page=10 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:23:27 +0000] "GET /programs/?page=1&per_page=10 HTTP/1.1" 200 215 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 36, in get
+    items = await self.db.get_ogorodes(self.page, self.per_page)
+AttributeError: 'DBService' object has no attribute 'get_ogorodes'
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:24:04 +0000] "GET /ogorodes/?page=1&per_page=10 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+^C[T:MainThread] INFO:phoenix.utils.pg: Disconnecting from database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Disconnected from database postgresql://user:***@localhost/phoenix
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ sudo make postgres
+docker stop phoenix-postgres || true
+phoenix-postgres
+docker run --rm --detach --name=phoenix-postgres \
+        --env POSTGRES_USER=user \
+        --env POSTGRES_PASSWORD=hackme \
+        --env POSTGRES_DB=phoenix \
+        --publish 5432:5432 postgres
+63f46ba327c6d7b0a0666d803732eb6f2fefc80c61705ed703f4f60435a05423
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-db upgrade head
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 352f69a8c5eb, initial
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-api
+[T:MainThread] INFO:aiomisc.utils: Listening http://0.0.0.0:8081
+======== Running on http://0.0.0.0:8081 ========
+(Press CTRL+C to quit)
+[T:MainThread] INFO:phoenix.utils.pg: Connecting to database: postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Connected to database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:25:07 +0000] "GET /docs/ HTTP/1.1" 200 1624 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:25:07 +0000] "GET /static/swagger/swagger-ui.css HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:25:07 +0000] "GET /static/swagger/swagger-ui-bundle.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:25:07 +0000] "GET /static/swagger/swagger-ui-standalone-preset.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:25:07 +0000] "GET /api/docs/swagger.json HTTP/1.1" 200 12019 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:25:14 +0000] "GET /programs/?page=1&per_page=10 HTTP/1.1" 200 215 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 36, in get
+    items = await self.db.get_ogorodes(self.page, self.per_page)
+AttributeError: 'DBService' object has no attribute 'get_ogorodes'
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:25:27 +0000] "GET /ogorodes/?page=1&per_page=10 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:26:59 +0000] "POST /ogorodes/ HTTP/1.1" 400 290 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:27:23 +0000] "GET /api/docs/swagger.json HTTP/1.1" 200 12019 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:28:34 +0000] "GET /programs/?page=2&per_page=5 HTTP/1.1" 200 214 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 36, in get
+    items = await self.db.get_ogorodes(self.page, self.per_page)
+AttributeError: 'DBService' object has no attribute 'get_ogorodes'
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:08:29:06 +0000] "GET /ogorodes/?page=1&per_page=10 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+^C[T:MainThread] INFO:phoenix.utils.pg: Disconnecting from database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Disconnected from database postgresql://user:***@localhost/phoenix
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ git branch -a
+* bolat
+  dev
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/dev
+ ESCOC
+
+
+
+
+
+ ESCOD
+* bolat
+* bolat
+  dev
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/dev
+  remotes/origin/master
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ git push -u origin bolat
+Username for 'https://github.com': b.jaidarinov@interpress.kz
+Password for 'https://b.jaidarinov@interpress.kz@github.com': 
+Counting objects: 103, done.
+Compressing objects: 100% (43/43), done.
+Writing objects: 100% (103/103), 21.30 KiB | 2.37 MiB/s, done.
+Total 103 (delta 62), reused 101 (delta 60)
+remote: Resolving deltas: 100% (62/62), completed with 5 local objects.
+remote: 
+remote: Create a pull request for 'bolat' on GitHub by visiting:
+remote:      https://github.com/vercity-ru/phoenix-back/pull/new/bolat
+remote: 
+To https://github.com/vercity-ru/phoenix-back.git
+ * [new branch]      bolat -> bolat
+Branch 'bolat' set up to track remote branch 'bolat' from 'origin'.
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ sudo make postgres
+[sudo] password for bolatkhan: 
+docker stop phoenix-postgres || true
+phoenix-postgres
+docker run --rm --detach --name=phoenix-postgres \
+        --env POSTGRES_USER=user \
+        --env POSTGRES_PASSWORD=hackme \
+        --env POSTGRES_DB=phoenix \
+        --publish 5432:5432 postgres
+1f2e3c31d4e45f3ef040b575053574ee8846100e3d2c90ae973963b84b737ba6
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-db upgrade head
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 352f69a8c5eb, initial
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-api
+[T:MainThread] INFO:aiomisc.utils: Listening http://0.0.0.0:8081
+======== Running on http://0.0.0.0:8081 ========
+(Press CTRL+C to quit)
+[T:MainThread] INFO:phoenix.utils.pg: Connecting to database: postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Connected to database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:14:59 +0000] "GET /docs/ HTTP/1.1" 200 1624 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:14:59 +0000] "GET /static/swagger/swagger-ui.css HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:14:59 +0000] "GET /static/swagger/swagger-ui-bundle.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:14:59 +0000] "GET /static/swagger/swagger-ui-standalone-preset.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:15:00 +0000] "GET /api/docs/swagger.json HTTP/1.1" 200 12019 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 36, in get
+    items = await self.db.get_ogorodes(self.page, self.per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 77, in get_ogorodes
+    return await self._get(ogorodes_table, page, per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 68, in _get
+    return await self._db.fetch(query)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpgsa/pgsingleton.py", line 73, in fetch
+    return await conn.fetch(query, *args, timeout=timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 420, in fetch
+    return await self._execute(query, args, 0, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1402, in _execute
+    result, _ = await self.__execute(
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1411, in __execute
+    return await self._do_execute(query, executor, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1423, in _do_execute
+    stmt = await self._get_statement(query, None)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 328, in _get_statement
+    statement = await self._protocol.prepare(stmt_name, query, timeout)
+  File "asyncpg/protocol/protocol.pyx", line 163, in prepare
+asyncpg.exceptions.UndefinedTableError: relation "ogorodes" does not exist
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:15:10 +0000] "GET /ogorodes/?page=1&per_page=10 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 36, in get
+    items = await self.db.get_ogorodes(self.page, self.per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 77, in get_ogorodes
+    return await self._get(ogorodes_table, page, per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 68, in _get
+    return await self._db.fetch(query)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpgsa/pgsingleton.py", line 73, in fetch
+    return await conn.fetch(query, *args, timeout=timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 420, in fetch
+    return await self._execute(query, args, 0, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1402, in _execute
+    result, _ = await self.__execute(
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1411, in __execute
+    return await self._do_execute(query, executor, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1423, in _do_execute
+    stmt = await self._get_statement(query, None)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 328, in _get_statement
+    statement = await self._protocol.prepare(stmt_name, query, timeout)
+  File "asyncpg/protocol/protocol.pyx", line 163, in prepare
+asyncpg.exceptions.UndefinedTableError: relation "ogorodes" does not exist
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:15:22 +0000] "GET /ogorodes/?page=1&per_page=5 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:15:33 +0000] "GET /api/docs/swagger.json HTTP/1.1" 200 12019 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:16:38 +0000] "GET /programs/3 HTTP/1.1" 404 210 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:16:44 +0000] "GET /programs/1 HTTP/1.1" 404 210 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 55, in get
+    g = await self.db.view_ogorod(self.id)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 97, in view_ogorod
+    return await self._view(ogorodes_table, ogorod_id)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 88, in _view
+    return await self._db.fetchrow(query)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpgsa/pgsingleton.py", line 77, in fetchrow
+    return await conn.fetchrow(query, *args, timeout=timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 454, in fetchrow
+    data = await self._execute(query, args, 1, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1402, in _execute
+    result, _ = await self.__execute(
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1411, in __execute
+    return await self._do_execute(query, executor, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1423, in _do_execute
+    stmt = await self._get_statement(query, None)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 328, in _get_statement
+    statement = await self._protocol.prepare(stmt_name, query, timeout)
+  File "asyncpg/protocol/protocol.pyx", line 163, in prepare
+asyncpg.exceptions.UndefinedTableError: relation "ogorodes" does not exist
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:16:59 +0000] "GET /ogorodes/1 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 36, in get
+    items = await self.db.get_ogorodes(self.page, self.per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 77, in get_ogorodes
+    return await self._get(ogorodes_table, page, per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 68, in _get
+    return await self._db.fetch(query)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpgsa/pgsingleton.py", line 73, in fetch
+    return await conn.fetch(query, *args, timeout=timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 420, in fetch
+    return await self._execute(query, args, 0, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1402, in _execute
+    result, _ = await self.__execute(
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1411, in __execute
+    return await self._do_execute(query, executor, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1423, in _do_execute
+    stmt = await self._get_statement(query, None)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 328, in _get_statement
+    statement = await self._protocol.prepare(stmt_name, query, timeout)
+  File "asyncpg/protocol/protocol.pyx", line 163, in prepare
+asyncpg.exceptions.UndefinedTableError: relation "ogorodes" does not exist
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:18:44 +0000] "GET /ogorodes/?page=1&per_page=5 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+^C[T:MainThread] INFO:phoenix.utils.pg: Disconnecting from database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Disconnected from database postgresql://user:***@localhost/phoenix
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ make test
+venv/bin/pylama
+phoenix/utils/testing.py:91:1: C901 'question_generate' is too complex (16) [mccabe]
+phoenix/api/schema.py:83:1: E266 too many leading '#' for block comment [pycodestyle]
+phoenix/api/schema.py:101:1: E266 too many leading '#' for block comment [pycodestyle]
+phoenix/api/schema.py:167:1: E266 too many leading '#' for block comment [pycodestyle]
+phoenix/api/schema.py:183:1: E266 too many leading '#' for block comment [pycodestyle]
+Makefile:28: recipe for target 'lint' failed
+make: *** [lint] Error 1
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ make test
+venv/bin/pylama
+phoenix/utils/testing.py:91:1: C901 'question_generate' is too complex (16) [mccabe]
+Makefile:28: recipe for target 'lint' failed
+make: *** [lint] Error 1
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ ls
+Dockerfile  Makefile     phoenix           pylama.ini  README.rst            requirements.txt  tests
+fabfile.py  MANIFEST.in  phoenix.egg-info  pytest.ini  requirements.dev.txt  setup.py          venv
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ cd tests/
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back/tests$ ls
+api  conftest.py  migrations
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back/tests$ cd api
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back/tests/api$ ls
+conftest.py  test_ages.py  test_programs.py  test_questions.py
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back/tests/api$ make test
+make: *** No rule to make target 'test'.  Stop.
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back/tests/api$ make test_program.py
+make: *** No rule to make target 'test_program.py'.  Stop.
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back/tests/api$ cd ..
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back/tests$ cd ..
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ ls
+Dockerfile  Makefile     phoenix           pylama.ini  README.rst            requirements.txt  tests
+fabfile.py  MANIFEST.in  phoenix.egg-info  pytest.ini  requirements.dev.txt  setup.py          venv
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ make test
+venv/bin/pylama
+phoenix/utils/testing.py:91:1: C901 'question_generate' is too complex (16) [mccabe]
+Makefile:28: recipe for target 'lint' failed
+make: *** [lint] Error 1
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ make test
+venv/bin/pylama
+phoenix/utils/testing.py:46:1: E302 expected 2 blank lines, found 1 [pycodestyle]
+phoenix/utils/testing.py:61:1: E302 expected 2 blank lines, found 1 [pycodestyle]
+phoenix/utils/testing.py:105:1: C901 'question_generate' is too complex (16) [mccabe]
+phoenix/utils/testing.py:172:1: E0602 undefined name 'ogorodes_table' [pyflakes]
+phoenix/utils/testing.py:175:1: E0602 undefined name 'ogorodes_table' [pyflakes]
+Makefile:28: recipe for target 'lint' failed
+make: *** [lint] Error 1
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ make test
+venv/bin/pylama
+phoenix/utils/testing.py:46:1: E302 expected 2 blank lines, found 1 [pycodestyle]
+phoenix/utils/testing.py:61:1: E302 expected 2 blank lines, found 1 [pycodestyle]
+phoenix/utils/testing.py:105:1: C901 'question_generate' is too complex (16) [mccabe]
+Makefile:28: recipe for target 'lint' failed
+make: *** [lint] Error 1
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ make test
+venv/bin/pylama
+phoenix/utils/testing.py:107:1: C901 'question_generate' is too complex (16) [mccabe]
+Makefile:28: recipe for target 'lint' failed
+make: *** [lint] Error 1
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ sudo make postgres
+[sudo] password for bolatkhan: 
+docker stop phoenix-postgres || true
+phoenix-postgres
+docker run --rm --detach --name=phoenix-postgres \
+        --env POSTGRES_USER=user \
+        --env POSTGRES_PASSWORD=hackme \
+        --env POSTGRES_DB=phoenix \
+        --publish 5432:5432 postgres
+38484c768c07688a07b2aa4610b0c92d4c156355aba706360531dc3d55bac258
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-db upgrade head
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 352f69a8c5eb, initial
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-api
+[T:MainThread] INFO:aiomisc.utils: Listening http://0.0.0.0:8081
+======== Running on http://0.0.0.0:8081 ========
+(Press CTRL+C to quit)
+[T:MainThread] INFO:phoenix.utils.pg: Connecting to database: postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Connected to database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:37:56 +0000] "GET /docs/ HTTP/1.1" 200 1624 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:37:57 +0000] "GET /static/swagger/swagger-ui.css HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:37:57 +0000] "GET /static/swagger/swagger-ui-bundle.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:37:57 +0000] "GET /static/swagger/swagger-ui-standalone-preset.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:37:57 +0000] "GET /api/docs/swagger.json HTTP/1.1" 200 12019 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] ERROR:phoenix.api.middleware: Unhandled exception
+Traceback (most recent call last):
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/middleware.py", line 46, in error_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp_apispec/middlewares.py", line 45, in validation_middleware
+    return await handler(request)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_urldispatcher.py", line 892, in _iter
+    resp = await method()
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/handlers/ogorodes.py", line 36, in get
+    items = await self.db.get_ogorodes(self.page, self.per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 77, in get_ogorodes
+    return await self._get(ogorodes_table, page, per_page)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/phoenix/api/db_service.py", line 68, in _get
+    return await self._db.fetch(query)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpgsa/pgsingleton.py", line 73, in fetch
+    return await conn.fetch(query, *args, timeout=timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 420, in fetch
+    return await self._execute(query, args, 0, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1402, in _execute
+    result, _ = await self.__execute(
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1411, in __execute
+    return await self._do_execute(query, executor, timeout)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 1423, in _do_execute
+    stmt = await self._get_statement(query, None)
+  File "/home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/asyncpg/connection.py", line 328, in _get_statement
+    statement = await self._protocol.prepare(stmt_name, query, timeout)
+  File "asyncpg/protocol/protocol.pyx", line 163, in prepare
+asyncpg.exceptions.UndefinedTableError: relation "ogorodes" does not exist
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:38:05 +0000] "GET /ogorodes/?page=1&per_page=10 HTTP/1.1" 500 248 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:38:20 +0000] "GET /programs/?page=1&per_page=10 HTTP/1.1" 200 215 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:38:26 +0000] "GET /api/docs/swagger.json HTTP/1.1" 200 12019 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+^C[T:MainThread] INFO:phoenix.utils.pg: Disconnecting from database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Disconnected from database postgresql://user:***@localhost/phoenix
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ def fill_program(conn, program: Dict[str, Any]) -> int:
+bash: syntax error near unexpected token `('
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$     res = conn.execute(
+bash: syntax error near unexpected token `('
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$         programs_table.insert().values(
+bash: syntax error near unexpected token `.values'
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$             program
+program: command not found
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$         ).returning(
+bash: syntax error near unexpected token `)'
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$             programs_table.c.id
+programs_table.c.id: command not found
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$         )
+bash: syntax error near unexpected token `)'
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$     )
+bash: syntax error near unexpected token `)'
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$     for row in res:
+> exit
+bash: syntax error near unexpected token `exit'
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-db revision --message='added New category: Ogorodes' --autogenerate
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.autogenerate.compare] Detected added table 'ogorodes'
+INFO  [alembic.ddl.postgresql] Detected sequence named 'questions_id_seq' as owned by integer column 'questions(id)', assuming SERIAL and omitting
+  Generating /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-
+  back/phoenix/db/alembic/versions/86122b4cd048_added_new_category_ogorodes.py ...  done
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ sudo make postgres
+[sudo] password for bolatkhan: 
+docker stop phoenix-postgres || true
+phoenix-postgres
+docker run --rm --detach --name=phoenix-postgres \
+        --env POSTGRES_USER=user \
+        --env POSTGRES_PASSWORD=hackme \
+        --env POSTGRES_DB=phoenix \
+        --publish 5432:5432 postgres
+54ebd81eda131c3a4a3053473dd121f70eddbf0d57414fe9c9034b321eb3bd1a
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-db upgrade head
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 352f69a8c5eb, initial
+INFO  [alembic.runtime.migration] Running upgrade 352f69a8c5eb -> 86122b4cd048, added New category: Ogorodes
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ phoenix-api
+[T:MainThread] INFO:aiomisc.utils: Listening http://0.0.0.0:8081
+======== Running on http://0.0.0.0:8081 ========
+(Press CTRL+C to quit)
+[T:MainThread] INFO:phoenix.utils.pg: Connecting to database: postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Connected to database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:57:07 +0000] "GET /docs/ HTTP/1.1" 200 1624 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:57:07 +0000] "GET /static/swagger/swagger-ui.css HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:57:07 +0000] "GET /static/swagger/swagger-ui-bundle.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:57:07 +0000] "GET /static/swagger/swagger-ui-standalone-preset.js HTTP/1.1" 304 140 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:57:08 +0000] "GET /api/docs/swagger.json HTTP/1.1" 200 12019 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:57:17 +0000] "GET /programs/?page=1&per_page=10 HTTP/1.1" 200 215 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+[T:MainThread] INFO:aiohttp.access: 127.0.0.1 [22/May/2020:09:57:27 +0000] "GET /ogorodes/?page=1&per_page=10 HTTP/1.1" 200 215 "http://0.0.0.0:8081/docs/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0"
+^C[T:MainThread] INFO:phoenix.utils.pg: Disconnecting from database postgresql://user:***@localhost/phoenix
+[T:MainThread] INFO:phoenix.utils.pg: Disconnected from database postgresql://user:***@localhost/phoenix
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ ls
+Dockerfile  Makefile     phoenix           pylama.ini  README.rst            requirements.txt  tests
+fabfile.py  MANIFEST.in  phoenix.egg-info  pytest.ini  requirements.dev.txt  setup.py          venv
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ pytest -k test_programs.py tests
+====================================================== test session starts =======================================================
+platform linux -- Python 3.8.3, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+rootdir: /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back, inifile: pytest.ini
+plugins: cov-2.8.1, pylama-7.7.1, aiomisc-9.6.36, aiohttp-0.3.0
+collected 17 items / 12 deselected / 5 selected                                                                                  
+
+tests/api/test_programs.py .....                                                                                           [100%]
+
+======================================================== warnings summary ========================================================
+venv/lib/python3.8/site-packages/pkg_resources/_vendor/pyparsing.py:943
+  /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/pkg_resources/_vendor/pyparsing.py:943: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.9 it will stop working
+    collections.MutableMapping.register(ParseResults)
+
+venv/lib/python3.8/site-packages/pkg_resources/_vendor/pyparsing.py:3226
+  /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/pkg_resources/_vendor/pyparsing.py:3226: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.9 it will stop working
+    elif isinstance( exprs, collections.Iterable ):
+
+venv/lib/python3.8/distutils/__init__.py:4
+  /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/distutils/__init__.py:4: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+    import imp
+
+tests/api/test_programs.py::test_add_program[pyloop]
+tests/api/test_programs.py::test_get_programs[pyloop-params0-expected0]
+tests/api/test_programs.py::test_get_programs[pyloop-params1-expected1]
+tests/api/test_programs.py::test_get_programs[pyloop-params2-expected2]
+tests/api/test_programs.py::test_view_program[pyloop]
+  /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/connector.py:964: DeprecationWarning: The loop argument is deprecated since Python 3.8, and scheduled for removal in Python 3.10.
+    hosts = await asyncio.shield(self._resolve_host(
+
+tests/api/test_programs.py::test_add_program[pyloop]
+tests/api/test_programs.py::test_add_program[pyloop]
+  /home/bolatkhan/PycharmProjects/phoenix-back/phoenix-back/venv/lib/python3.8/site-packages/aiohttp/web_exceptions.py:91: DeprecationWarning: body argument is deprecated for http web exceptions
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+========================================= 5 passed, 12 deselected, 10 warnings in 5.26s ==========================================
+(venv) bolatkhan@bolatkhan-VirtualBox:~/PycharmProjects/phoenix-back/phoenix-back$ 
+
